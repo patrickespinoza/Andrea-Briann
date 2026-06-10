@@ -50,8 +50,8 @@ const Itinerario2 = () => {
           absolute
           top-0
           left-0
-          w-36
-          md:w-52
+          w-24
+          md:w-36
           opacity-85
           pointer-events-none
         "
@@ -64,8 +64,8 @@ const Itinerario2 = () => {
           absolute
           top-0
           right-0
-          w-36
-          md:w-52
+          w-24
+          md:w-32
           rotate-90
           opacity-85
           pointer-events-none
@@ -79,8 +79,8 @@ const Itinerario2 = () => {
           absolute
           bottom-0
           right-0
-          w-36
-          md:w-52
+          w-24
+          md:w-32
           rotate-180
           opacity-85
           pointer-events-none
@@ -94,8 +94,8 @@ const Itinerario2 = () => {
           absolute
           bottom-0
           left-0
-          w-36
-          md:w-52
+          w-24
+          md:w-32
           -rotate-90
           opacity-85
           pointer-events-none
