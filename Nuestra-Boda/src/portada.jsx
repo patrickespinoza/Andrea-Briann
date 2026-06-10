@@ -3,21 +3,45 @@ import { motion } from "framer-motion";
 
 export default function Portada() {
   const audioRef = useRef(null);
+
+  const [showMusicModal, setShowMusicModal] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
 
-  const handlePlayMusic = () => {
+  const enableMusic = () => {
     if (audioRef.current) {
+      audioRef.current.muted = false;
       audioRef.current.play().catch((error) => {
         console.error(error);
       });
     }
+
+    setIsMuted(false);
+    setShowMusicModal(false);
+  };
+
+  const disableMusic = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+
+    setIsMuted(true);
+    setShowMusicModal(false);
   };
 
   const toggleMute = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
+    if (!audioRef.current) return;
+
+    if (isMuted) {
+      audioRef.current.muted = false;
+      audioRef.current.play().catch((error) => {
+        console.error(error);
+      });
+    } else {
+      audioRef.current.muted = true;
     }
+
+    setIsMuted(!isMuted);
   };
 
   return (
@@ -34,7 +58,7 @@ export default function Portada() {
         }}
       />
 
-      {/* Marco Talavera */}
+      {/* Marco */}
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -51,7 +75,7 @@ export default function Portada() {
       >
         <img
           src="/marco-portada.png"
-          alt="Marco Talavera"
+          alt="Marco Floral"
           className="
             absolute
             inset-0
@@ -74,31 +98,11 @@ export default function Portada() {
             items-center
             justify-center
             text-center
-
             px-[18%]
             sm:px-[20%]
             md:px-[22%]
           "
         >
-          {/* Título */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="
-              uppercase
-              tracking-[4px]
-              sm:tracking-[6px]
-              text-xs
-              sm:text-sm
-              mb-6
-            "
-            style={{
-              color: "#C8A96B",
-            }}
-          >
-            
-          </motion.p>
 
           {/* Nombre Novia */}
           <motion.h1
@@ -170,13 +174,9 @@ export default function Portada() {
 
           {/* Separador */}
           <div className="flex justify-center items-center gap-4 my-8 md:my-10">
-
             <div className="w-10 sm:w-16 h-px bg-[#01B2D4]" />
-
             <div className="w-3 h-3 rounded-full bg-[#FCD102]" />
-
             <div className="w-10 sm:w-16 h-px bg-[#5D45BE]" />
-
           </div>
 
           {/* Frase */}
@@ -217,38 +217,131 @@ export default function Portada() {
           >
             25 · Julio · 2026
           </motion.p>
+
         </div>
       </motion.div>
 
       {/* Audio */}
-      <audio
-        ref={audioRef}
-        loop
-        onCanPlay={handlePlayMusic}
-      >
+      <audio ref={audioRef} loop>
         <source src="/musica.mp3" type="audio/mpeg" />
       </audio>
 
-      {/* Botón sonido opcional */}
-      {/*
-      <button
-        onClick={toggleMute}
-        className="
-          fixed
-          bottom-6
-          right-6
-          z-50
-          bg-white/80
-          backdrop-blur-md
-          px-4
-          py-2
-          rounded-full
-          shadow-md
-        "
-      >
-        {isMuted ? "🔇" : "🔊"}
-      </button>
-      */}
+      {/* Modal Música */}
+      {showMusicModal && (
+        <div
+          className="
+            fixed
+            inset-0
+            z-[999]
+            bg-black/60
+            backdrop-blur-sm
+            flex
+            items-center
+            justify-center
+            px-6
+          "
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            className="
+              bg-white
+              rounded-3xl
+              shadow-2xl
+              max-w-md
+              w-full
+              p-8
+              text-center
+            "
+          >
+            <div className="text-5xl mb-4">
+              🎵
+            </div>
+
+            <h3
+              className="
+                text-2xl
+                font-playfair
+                mb-3
+                text-[#5D45BE]
+              "
+            >
+              Esta invitación contiene música
+            </h3>
+
+            <p
+              className="
+                text-gray-600
+                leading-relaxed
+                mb-8
+              "
+            >
+              Te recomendamos activar el sonido para disfrutar una experiencia más especial.
+            </p>
+
+            <div className="flex gap-4 flex-col sm:flex-row">
+
+              <button
+                onClick={enableMusic}
+                className="
+                  flex-1
+                  py-3
+                  rounded-full
+                  text-white
+                  font-medium
+                  shadow-lg
+                "
+                style={{
+                  background:
+                    "linear-gradient(135deg,#5D45BE,#01B2D4)",
+                }}
+              >
+                Activar Música
+              </button>
+
+              <button
+                onClick={disableMusic}
+                className="
+                  flex-1
+                  py-3
+                  rounded-full
+                  border
+                  border-gray-300
+                  text-gray-700
+                  font-medium
+                "
+              >
+                Silenciar
+              </button>
+
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Botón Sonido */}
+      {!showMusicModal && (
+        <button
+          onClick={toggleMute}
+          className="
+            fixed
+            bottom-6
+            right-6
+            z-50
+            bg-white/90
+            backdrop-blur-md
+            px-4
+            py-2
+            rounded-full
+            shadow-lg
+            hover:scale-105
+            transition-all
+          "
+        >
+          {isMuted ? "🔇" : "🔊"}
+        </button>
+      )}
     </section>
   );
 }
