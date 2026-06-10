@@ -285,7 +285,7 @@ const Itinerario2 = () => {
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{
-                    duration: 0.10,
+                    duration: 0.6,
                     delay: index * 0.2,
                   }}
                   viewport={{ once: true }}
