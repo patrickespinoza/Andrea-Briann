@@ -21,7 +21,7 @@ export default function Portada() {
   };
 
   return (
-    <section className="relative min-h-screen bg-[#FAF9F6] overflow-hidden flex items-center justify-center px-2 sm:px-4">
+    <section className="relative min-h-screen bg-[#FAF9F6] overflow-hidden flex items-center justify-center">
 
       {/* Destellos suaves */}
       <div
@@ -36,16 +36,14 @@ export default function Portada() {
 
       {/* Marco Talavera */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2 }}
         className="
           relative
           w-full
-          max-w-[900px]
-          h-[90vh]
-          sm:h-[95vh]
-          md:h-screen
+          max-w-[1300px]
+          h-screen
           flex
           items-center
           justify-center
@@ -59,13 +57,13 @@ export default function Portada() {
             inset-0
             w-full
             h-full
-            object-contain
+            object-fill
             pointer-events-none
             select-none
           "
         />
 
-        {/* Contenido centrado */}
+        {/* Contenido */}
         <div
           className="
             absolute
@@ -76,9 +74,10 @@ export default function Portada() {
             items-center
             justify-center
             text-center
-            px-8
-            sm:px-14
-            md:px-20
+
+            px-[18%]
+            sm:px-[20%]
+            md:px-[22%]
           "
         >
           {/* Título */}
@@ -90,12 +89,13 @@ export default function Portada() {
               uppercase
               tracking-[4px]
               sm:tracking-[6px]
-              text-[10px]
-              sm:text-xs
-              md:text-sm
-              mb-4
+              text-xs
+              sm:text-sm
+              mb-6
             "
-            style={{ color: "#C8A96B" }}
+            style={{
+              color: "#C8A96B",
+            }}
           >
             Nos Casamos
           </motion.p>
@@ -107,10 +107,11 @@ export default function Portada() {
             transition={{ duration: 1 }}
             className="
               font-playfair
-              text-3xl
-              sm:text-5xl
-              md:text-6xl
-              lg:text-7xl
+              text-[2.5rem]
+              sm:text-[4rem]
+              md:text-[5rem]
+              lg:text-[6rem]
+              xl:text-[7rem]
               font-light
               text-[#1A1A1A]
               leading-tight
@@ -119,12 +120,12 @@ export default function Portada() {
             Andrea
           </motion.h1>
 
-          {/* & */}
+          {/* Ampersand */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="my-2 sm:my-4"
+            className="my-3 md:my-5"
           >
             <span
               className="
@@ -148,13 +149,17 @@ export default function Portada() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{
+              duration: 1,
+              delay: 0.2,
+            }}
             className="
               font-playfair
-              text-3xl
-              sm:text-5xl
-              md:text-6xl
-              lg:text-7xl
+              text-[2.5rem]
+              sm:text-[4rem]
+              md:text-[5rem]
+              lg:text-[6rem]
+              xl:text-[7rem]
               font-light
               text-[#1A1A1A]
               leading-tight
@@ -164,12 +169,14 @@ export default function Portada() {
           </motion.h1>
 
           {/* Separador */}
-          <div className="flex justify-center items-center gap-3 sm:gap-4 my-6 sm:my-8">
-            <div className="w-10 sm:w-16 h-[1px] bg-[#01B2D4]" />
+          <div className="flex justify-center items-center gap-4 my-8 md:my-10">
+
+            <div className="w-10 sm:w-16 h-px bg-[#01B2D4]" />
 
             <div className="w-3 h-3 rounded-full bg-[#FCD102]" />
 
-            <div className="w-10 sm:w-16 h-[1px] bg-[#5D45BE]" />
+            <div className="w-10 sm:w-16 h-px bg-[#5D45BE]" />
+
           </div>
 
           {/* Frase */}
@@ -181,10 +188,9 @@ export default function Portada() {
               italic
               text-[#666]
               text-sm
-              sm:text-base
-              md:text-lg
-              max-w-[260px]
-              sm:max-w-md
+              sm:text-lg
+              md:text-xl
+              max-w-xl
               leading-relaxed
             "
           >
@@ -197,16 +203,17 @@ export default function Portada() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
             className="
-              mt-6
-              sm:mt-8
+              mt-8
               uppercase
-              tracking-[3px]
-              sm:tracking-[5px]
-              text-xs
-              sm:text-sm
-              md:text-lg
+              tracking-[4px]
+              sm:tracking-[6px]
+              text-sm
+              sm:text-lg
+              md:text-xl
             "
-            style={{ color: "#5D45BE" }}
+            style={{
+              color: "#5D45BE",
+            }}
           >
             25 · Julio · 2026
           </motion.p>
@@ -222,7 +229,7 @@ export default function Portada() {
         <source src="/musica.mp3" type="audio/mpeg" />
       </audio>
 
-      {/* Botón opcional de sonido */}
+      {/* Botón sonido opcional */}
       {/*
       <button
         onClick={toggleMute}
