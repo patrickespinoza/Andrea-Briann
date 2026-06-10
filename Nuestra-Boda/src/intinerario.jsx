@@ -247,8 +247,7 @@ export default function Itinerario() {
       "
     >
       Nos haría mucha ilusión contar con tu presencia en este día tan especial.
-      Por favor confirma tu asistencia antes del
-      <span className="font-semibold"> 20 de diciembre.</span>
+      Por favor confirma tu asistencia
     </p>
 
     <div className="mt-12 space-y-5">
