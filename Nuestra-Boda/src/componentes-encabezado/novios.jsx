@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Novios = () => {
   return (
-    <section className="relative w-full bg-[#FAF9F6] overflow-hidden py-28 px-6">
+    <section className="relative w-full bg-white overflow-hidden py-28 px-6">
 
       {/* Fondo decorativo muy sutil */}
       <div
@@ -16,47 +16,72 @@ const Novios = () => {
         }}
       />
 
-      {/* Flor superior izquierda */}
-      <div
-        className="absolute top-8 left-6 md:left-20 text-5xl md:text-7xl select-none pointer-events-none"
-        style={{
-          color: "rgba(1,178,212,0.08)",
-        }}
-      >
-        ✿
-      </div>
-
-      {/* Flor inferior derecha */}
-      <div
-        className="absolute bottom-8 right-6 md:right-20 text-5xl md:text-7xl select-none pointer-events-none"
-        style={{
-          color: "rgba(93,69,190,0.08)",
-        }}
-      >
-        ✿
-      </div>
-
-      {/* Flor central gigante */}
-      <div
+      {/* Talavera Superior Izquierda */}
+      <img
+        src="/talavera-esquina.png"
+        alt=""
         className="
           absolute
-          inset-0
-          flex
-          items-center
-          justify-center
+          top-0
+          left-0
+          w-32
+          md:w-52
+          opacity-85
           pointer-events-none
           select-none
         "
-      >
-        <span
-          className="text-[14rem] md:text-[22rem] leading-none"
-          style={{
-            color: "rgba(93,69,190,0.025)",
-          }}
-        >
-          ✿
-        </span>
-      </div>
+      />
+
+      {/* Talavera Superior Derecha */}
+      <img
+        src="/talavera-esquina.png"
+        alt=""
+        className="
+          absolute
+          top-0
+          right-0
+          w-32
+          md:w-52
+          rotate-90
+          opacity-85
+          pointer-events-none
+          select-none
+        "
+      />
+
+      {/* Talavera Inferior Derecha */}
+      <img
+        src="/talavera-esquina.png"
+        alt=""
+        className="
+          absolute
+          bottom-0
+          right-0
+          w-32
+          md:w-52
+          rotate-180
+          opacity-85
+          pointer-events-none
+          select-none
+        "
+      />
+
+      {/* Talavera Inferior Izquierda */}
+      <img
+        src="/talavera-esquina.png"
+        alt=""
+        className="
+          absolute
+          bottom-0
+          left-0
+          w-32
+          md:w-52
+          -rotate-90
+          opacity-85
+          pointer-events-none
+          select-none
+        "
+      />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -89,30 +114,24 @@ const Novios = () => {
           Nuestra Boda
         </motion.p>
 
-        {/* Ornamento mexicano elegante */}
-        <div className="flex justify-center items-center gap-4 mb-12">
-          <div className="w-2 h-2 rounded-full bg-[#01B2D4]" />
+        {/* Cenefa elegante */}
+        <div className="flex justify-center items-center gap-3 mb-12">
 
-          <span
-            className="text-xl"
-            style={{ color: "#FCD102" }}
-          >
-            ✿
-          </span>
+          <div className="w-12 h-px bg-[#01B2D4]" />
+
+          <div className="w-2 h-2 rounded-full bg-[#FCD102]" />
+
+          <div className="w-2 h-2 rounded-full bg-[#EE5802]" />
 
           <div className="w-2 h-2 rounded-full bg-[#DF3CB5]" />
 
-          <span
-            className="text-xl"
-            style={{ color: "#EE5802" }}
-          >
-            ✿
-          </span>
-
           <div className="w-2 h-2 rounded-full bg-[#5D45BE]" />
+
+          <div className="w-12 h-px bg-[#01B2D4]" />
+
         </div>
 
-        {/* Nombre novia */}
+        {/* Nombre Novia */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +179,7 @@ const Novios = () => {
           <div className="w-16 h-px bg-[#D8CDB7]" />
         </motion.div>
 
-        {/* Nombre novio */}
+        {/* Nombre Novio */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -179,20 +198,18 @@ const Novios = () => {
           Briann Eulises Romero Lima
         </motion.h1>
 
-        {/* Cenefa floral */}
+        {/* Línea decorativa */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          initial={{ width: 0 }}
+          whileInView={{ width: "140px" }}
+          transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="flex justify-center items-center gap-4 mt-14"
-        >
-          <span className="text-[#01B2D4] text-xl">✿</span>
-          <span className="text-[#FCD102] text-xl">✿</span>
-          <span className="text-[#EE5802] text-xl">✿</span>
-          <span className="text-[#DF3CB5] text-xl">✿</span>
-          <span className="text-[#5D45BE] text-xl">✿</span>
-        </motion.div>
+          className="h-[2px] mx-auto mt-12 rounded-full"
+          style={{
+            background:
+              "linear-gradient(90deg,#01B2D4,#FCD102,#5D45BE)",
+          }}
+        />
 
         {/* Texto */}
         <motion.p

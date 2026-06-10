@@ -1,21 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import Celebracion from "./componentes-encabezado/ubicacion";
 import Intinerario2 from "./componentes-encabezado/itinerario2";
 import Novios from "./componentes-encabezado/novios";
 
 export default function Itinerario() {
 
+  const [nombreInvitado, setNombreInvitado] = useState("");
+  const [mensajeInvitado, setMensajeInvitado] = useState("");
+  const [asistencia, setAsistencia] = useState("");
+  const [invitados, setInvitados] = useState(1);
+  const [error, setError] = useState("");
+
+  const enviarConfirmacion = async () => {
+
+    if (!nombreInvitado || !asistencia) {
+      setError("Completa tu nombre y confirma asistencia");
+      return;
+    }
+
+    setError("");
+
+    const data = {
+      nombre: nombreInvitado,
+      asistencia,
+      invitados,
+      mensaje: mensajeInvitado,
+    };
+
+  try {
+
+  const response = await fetch(
+    "https://script.google.com/macros/s/AKfycbxy-qVsZyDdFbfN97ExrWS-y5sshQkdMmL17N8orLCEWjROupNmJbS45KOjDwZk-b5Zkg/exec",
+    {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  );
+
+  alert("¡Gracias! Tu confirmación fue enviada.");
+
+  setNombreInvitado("");
+  setMensajeInvitado("");
+  setAsistencia("");
+  setInvitados(1);
+
+} catch (error) {
+
+  console.error(error);
+  setError("Hubo un error al enviar");
+
+}
+  };
+
   return (
     <div>
 
-{/* SECCIÓN VESTIMENTA */}
       <Novios />
-      {/* SECCIÓN CELEBRACIONES */}
-      <div className=" md:grid-cols-2 overflow-hidden">
 
+      <div className="overflow-hidden">
         <Celebracion
           titulo="Ceremonia"
-          dia="Sabado"
+          dia="Sábado"
           fecha="25"
           mesAnio="Julio 2026"
           hora="12:00 PM"
@@ -23,268 +72,349 @@ export default function Itinerario() {
           direccion="Emilio Carranza 12"
           ubicacion="https://maps.app.goo.gl/178mHUcbGDc3viFF9"
         />
+      </div>
+
+      <Intinerario2 />
+
+            {/* VERSÍCULO */}
+
+      <div className="relative w-full flex items-center justify-center bg-[#F7F4ED] py-16 px-4">
+
+        <img
+          src="/marco-versiculo.png"
+          alt="Marco Floral"
+          className="
+            absolute
+            inset-0
+            w-full
+            h-full
+            object-contain
+            pointer-events-none
+            select-none
+            opacity-90
+          "
+        />
+
+        <div
+          className="
+            relative
+            z-10
+            w-full
+            max-w-4xl
+            text-center
+            px-[12%]
+            sm:px-[15%]
+            md:px-[18%]
+            lg:px-[20%]
+            py-24
+            md:py-32
+          "
+        >
+
+          <p
+            className="
+              uppercase
+              tracking-[6px]
+              text-xs
+              md:text-sm
+              mb-8
+            "
+            style={{
+              color: "#C8A96B",
+            }}
+          >
+            Versículo
+          </p>
+
+          <h2
+            className="
+              font-playfair
+              text-2xl
+              sm:text-3xl
+              md:text-4xl
+              lg:text-5xl
+              leading-relaxed
+              font-light
+              text-[#2B2B2B]
+            "
+          >
+            “El amor nunca deja de ser;
+            <br />
+            todo lo cree,
+            todo lo espera,
+            todo lo soporta.”
+          </h2>
+
+          <div className="flex justify-center items-center gap-4 my-10">
+
+            <div className="w-12 md:w-20 h-px bg-[#01B2D4]" />
+
+            <div className="w-3 h-3 rounded-full bg-[#FCD102]" />
+
+            <div className="w-12 md:w-20 h-px bg-[#5D45BE]" />
+
+          </div>
+
+          <p
+            className="
+              text-lg
+              md:text-2xl
+              italic
+            "
+            style={{
+              color: "#EE5802",
+            }}
+          >
+            1 Corintios 13:7-8
+          </p>
+
+        </div>
 
       </div>
 
-      {/* SECCIÓN ITINERARIO */}
-      <Intinerario2/>
+      {/* CONFIRMACIÓN DE ASISTENCIA */}
 
-      {/* CONFIRMACIÓN */}
+      <section className="relative bg-[#FAF9F6] py-24 px-6 overflow-hidden">
 
-      {/* IMAGEN FINAL */}
-     <div className="relative w-full flex items-center justify-center bg-[#F7F4ED] py-16 px-4">
-
-  {/* Marco floral */}
-  <img
-    src="/marco-versiculo.png"
-    alt="Marco Floral"
-    className="
-      absolute
-      inset-0
-      w-full
-      h-full
-      object-contain
-      pointer-events-none
-      select-none
-    "
+  {/* Fondo decorativo */}
+  <div
+    className="absolute inset-0 opacity-[0.08]"
+    style={{
+      backgroundImage: "url('/fondo-mexicano.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
   />
 
-  {/* Contenido */}
   <div
     className="
       relative
       z-10
+      max-w-3xl
+      mx-auto
 
-      w-full
-      max-w-4xl
+      bg-white/90
+      backdrop-blur-sm
 
-      text-center
+      rounded-[40px]
 
-      px-[12%]
-      sm:px-[15%]
-      md:px-[18%]
-      lg:px-[20%]
+      shadow-[0_20px_60px_rgba(0,0,0,0.08)]
 
-      py-24
-      md:py-32
+      border
+      border-[#E9E1D3]
+
+      p-8
+      md:p-14
     "
   >
+
+    {/* Ornamento */}
+    <div className="flex justify-center items-center gap-3 mb-8">
+
+      <div className="w-12 h-px bg-[#01B2D4]" />
+
+      <span className="text-2xl text-[#EE5802]">
+        ❋
+      </span>
+
+      <div className="w-12 h-px bg-[#5D45BE]" />
+
+    </div>
 
     <p
       className="
         uppercase
-        tracking-[6px]
+        tracking-[5px]
         text-xs
         md:text-sm
-        mb-8
+        text-center
       "
       style={{
         color: "#C8A96B",
       }}
     >
-      Versículo
-    </p>
-
-    <h2
-      className="
-        font-playfair
-        text-2xl
-        sm:text-3xl
-        md:text-4xl
-        lg:text-5xl
-
-        leading-relaxed
-        font-light
-
-        text-[#2B2B2B]
-      "
-    >
-      “El amor nunca deja de ser;
-      <br />
-      todo lo cree,
-      todo lo espera,
-      todo lo soporta.”
-    </h2>
-
-    <div className="flex justify-center items-center gap-4 my-10">
-
-      <div className="w-12 md:w-20 h-px bg-[#01B2D4]" />
-
-      <div className="w-3 h-3 rounded-full bg-[#FCD102]" />
-
-      <div className="w-12 md:w-20 h-px bg-[#5D45BE]" />
-
-    </div>
-
-    <p
-      className="
-        text-lg
-        md:text-2xl
-        italic
-      "
-      style={{
-        color: "#EE5802",
-      }}
-    >
-      1 Corintios 13:7-8
-    </p>
-
-  </div>
-
-</div>
-   <div
-  className="
-    relative
-    flex
-    flex-col
-    items-center
-    justify-center
-    gap-4
-    py-28
-    px-6
-    overflow-hidden
-  "
->
-
-  {/* Fondo floral mexicano */}
-  <img
-    src="/bugambilia-esquina.png"
-    alt=""
-    className="
-      absolute
-      inset-0
-      w-full
-      h-full
-      object-cover
-      pointer-events-none
-      select-none
-    "
-  />
-
-  {/* Capa suave para legibilidad */}
-  <div className="absolute inset-0 bg-[#FAF6EE]/10" />
-
-  {/* Contenido */}
-  <div className="relative z-10 flex flex-col items-center">
-
-    <p
-      className="
-        uppercase
-        tracking-[6px]
-        text-xs
-        sm:text-sm
-        mb-2
-      "
-      style={{
-        color: "#B88A1A",
-      }}
-    >
-      Tu presencia es importante
+      Nuestra Boda
     </p>
 
     <h1
       className="
-        text-3xl
-        sm:text-5xl
-        font-playfair
+        mt-4
+        text-4xl
+        md:text-6xl
         text-center
-        leading-tight
+        font-playfair
+        text-[#1A1A1A]
       "
-      style={{
-        color: "#222",
-      }}
     >
       Confirmar Asistencia
     </h1>
 
-    {/* Separador */}
-    <div className="flex items-center gap-4 my-6">
-
-      <div className="w-14 h-px bg-[#C49A25]" />
-
-      <div className="w-3 h-3 rounded-full bg-[#C49A25]" />
-
-      <div className="w-14 h-px bg-[#C49A25]" />
-
-    </div>
-
-    {/* Icono */}
-    <div
-      className="
-        bg-white/70
-        backdrop-blur-sm
-        rounded-full
-        p-5
-        shadow-lg
-      "
-    >
-      <img
-        className="h-20 w-20 sm:h-24 sm:w-24"
-        src="/anillos-de-boda.png"
-        alt="Anillos"
-      />
-    </div>
-
     <p
       className="
-        text-xl
-        sm:text-3xl
-        text-center
-        font-cursiveDancing
         mt-6
-        max-w-2xl
-      "
-      style={{
-        color: "#333",
-      }}
-    >
-      Confirma tu asistencia antes del
-    </p>
-
-    <p
-      className="
-        text-2xl
-        sm:text-4xl
-        font-playfair
         text-center
-        mt-2
+        text-[#555]
+        text-lg
+        leading-relaxed
+        max-w-xl
+        mx-auto
       "
-      style={{
-        color: "#8E2C7B",
-      }}
     >
-      20 de Diciembre
+      Nos haría mucha ilusión contar con tu presencia en este día tan especial.
+      Por favor confirma tu asistencia antes del
+      <span className="font-semibold"> 20 de diciembre.</span>
     </p>
 
-    <button
-      className="
-        mt-10
-        px-10
-        py-4
-        rounded-full
-        text-lg
-        text-white
-        font-medium
-        shadow-xl
-        transition-all
-        duration-300
-        hover:scale-105
-      "
-      style={{
-        background:
-          "linear-gradient(135deg,#D42E8E,#7A46D1)",
-      }}
-      onClick={() =>
-        window.location.href =
-          "https://docs.google.com/forms/d/e/1FAIpQLSdWWDOUbW7aS_g6uzvas71apTg0ub0Aw8DG5GQf9_9a9jaJZA/viewform?usp=header"
-      }
-    >
-      Confirmar Asistencia
-    </button>
+    <div className="mt-12 space-y-5">
+
+      <input
+        type="text"
+        placeholder="Nombre y apellido"
+        value={nombreInvitado}
+        onChange={(e) =>
+          setNombreInvitado(e.target.value)
+        }
+        className="
+          w-full
+          p-4
+
+          bg-[#FAF9F6]
+
+          border
+          border-[#DDD3C1]
+
+          rounded-2xl
+
+          focus:outline-none
+          focus:ring-2
+          focus:ring-[#01B2D4]
+        "
+      />
+
+      <div className="flex flex-wrap justify-center gap-4">
+
+        <button
+          onClick={() =>
+            setAsistencia("Sí asistiré")
+          }
+          className={`
+            px-8 py-3 rounded-full transition-all
+
+            ${
+              asistencia === "Sí asistiré"
+                ? "text-white"
+                : "bg-white border border-[#DDD3C1]"
+            }
+          `}
+          style={
+            asistencia === "Sí asistiré"
+              ? {
+                  background:
+                    "linear-gradient(135deg,#01B2D4,#5D45BE)",
+                }
+              : {}
+          }
+        >
+          Sí asistiré
+        </button>
+
+        <button
+          onClick={() =>
+            setAsistencia("No podré asistir")
+          }
+          className={`
+            px-8 py-3 rounded-full transition-all
+
+            ${
+              asistencia === "No podré asistir"
+                ? "bg-[#EE5802] text-white"
+                : "bg-white border border-[#DDD3C1]"
+            }
+          `}
+        >
+          No asistiré
+        </button>
+
+      </div>
+
+      <input
+        type="number"
+        min="1"
+        value={invitados}
+        onChange={(e) =>
+          setInvitados(Number(e.target.value))
+        }
+        placeholder="Número de invitados"
+        className="
+          w-full
+          p-4
+
+          bg-[#FAF9F6]
+
+          border
+          border-[#DDD3C1]
+
+          rounded-2xl
+          text-center
+        "
+      />
+
+      <textarea
+        rows={4}
+        placeholder="Mensaje para los novios (opcional)"
+        value={mensajeInvitado}
+        onChange={(e) =>
+          setMensajeInvitado(e.target.value)
+        }
+        className="
+          w-full
+          p-4
+
+          bg-[#FAF9F6]
+
+          border
+          border-[#DDD3C1]
+
+          rounded-2xl
+        "
+      />
+
+      {error && (
+        <p className="text-red-500 text-center">
+          {error}
+        </p>
+      )}
+
+      <button
+        onClick={enviarConfirmacion}
+        className="
+          w-full
+          mt-6
+          py-4
+
+          rounded-full
+
+          text-white
+          text-lg
+
+          shadow-lg
+
+          hover:scale-[1.02]
+          transition
+        "
+        style={{
+          background:
+            "linear-gradient(135deg,#01B2D4,#5D45BE)",
+        }}
+      >
+        Confirmar Asistencia
+      </button>
+
+    </div>
 
   </div>
 
-</div>
+</section>
 
     </div>
   );

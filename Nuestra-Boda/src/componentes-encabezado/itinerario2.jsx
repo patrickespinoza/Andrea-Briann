@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Itinerario2 = () => {
-
   const fadeUp = {
     hidden: {
       opacity: 0,
@@ -21,10 +20,12 @@ const Itinerario2 = () => {
     {
       titulo: "Boda Civil",
       imagen: "/arco-de-la-boda.png",
+      hora: "4:00 PM",
     },
     {
       titulo: "Baile",
       imagen: "/bola-de-disco.png",
+      hora: "9:00 PM",
     },
   ];
 
@@ -32,98 +33,242 @@ const Itinerario2 = () => {
     {
       titulo: "Comida",
       imagen: "/cena-romantica.png",
+      hora: "6:00 PM",
     },
     {
       titulo: "Pastel",
       imagen: "/pastel.png",
+      hora: "8:00 PM",
     },
   ];
 
   return (
-    <div className="w-full bg-[#F7F4ED] py-0 px-0 flex items-center justify-center overflow-hidden">
+    <section className="relative w-full bg-white py-24 px-6 overflow-hidden">
 
-      {/* CONTENEDOR */}
+      {/* Esquinas Talavera */}
+
+      <img
+        src="/talavera-esquina.png"
+        alt=""
+        className="
+          absolute
+          top-0
+          left-0
+          w-36
+          md:w-52
+          opacity-85
+          pointer-events-none
+        "
+      />
+
+      <img
+        src="/talavera-esquina.png"
+        alt=""
+        className="
+          absolute
+          top-0
+          right-0
+          w-36
+          md:w-52
+          rotate-90
+          opacity-85
+          pointer-events-none
+        "
+      />
+
+      <img
+        src="/talavera-esquina.png"
+        alt=""
+        className="
+          absolute
+          bottom-0
+          right-0
+          w-36
+          md:w-52
+          rotate-180
+          opacity-85
+          pointer-events-none
+        "
+      />
+
+      <img
+        src="/talavera-esquina.png"
+        alt=""
+        className="
+          absolute
+          bottom-0
+          left-0
+          w-36
+          md:w-52
+          -rotate-90
+          opacity-85
+          pointer-events-none
+        "
+      />
+
       <motion.div
         variants={fadeUp}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="
-          max-w-6xl mx-auto
-          bg-[#F7F4ED]
-          rounded-tl-[4rem]
-          rounded-br-[4rem]
-          rounded-tr-[1rem]
-          rounded-bl-[1rem]
-          shadow-[0_15px_50px_rgba(0,0,0,0.2)]
-          p-10 sm:p-16
-        "
+        className="max-w-6xl mx-auto relative z-10"
       >
 
         {/* TÍTULO */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
 
-          <p className="uppercase tracking-[0.25em] text-[#B89B5E] text-sm font-semibold">
+        <div className="text-center">
+
+          <p
+            className="
+              uppercase
+              tracking-[0.35em]
+              text-sm
+              font-semibold
+            "
+            style={{
+              color: "#EE5802",
+            }}
+          >
             Nuestro Día
           </p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-playfair text-black mt-4">
+          <h1
+            className="
+              mt-4
+              text-5xl
+              md:text-6xl
+              font-playfair
+            "
+            style={{
+              color: "#5D45BE",
+            }}
+          >
             Itinerario
           </h1>
 
-          <div className="w-24 h-[2px] bg-[#B89B5E] mx-auto mt-6"></div>
+          <div className="flex justify-center items-center gap-4 mt-8">
 
-        </motion.div>
+            <div
+              className="w-20 h-[2px]"
+              style={{
+                background:
+                  "linear-gradient(90deg,#01B2D4,#5D45BE)",
+              }}
+            />
+
+            <div className="w-3 h-3 rounded-full bg-[#FCD102]" />
+
+            <div
+              className="w-20 h-[2px]"
+              style={{
+                background:
+                  "linear-gradient(90deg,#5D45BE,#01B2D4)",
+              }}
+            />
+
+          </div>
+
+        </div>
 
         {/* TIMELINE */}
+
         <div className="relative mt-20">
 
-          {/* Línea central desktop */}
-          <div className="hidden md:block absolute left-1/2 top-0 h-full w-[3px] bg-[#B89B5E]/40 -translate-x-1/2"></div>
+          <div
+            className="
+              hidden
+              md:block
+              absolute
+              left-1/2
+              top-0
+              h-full
+              w-[3px]
+              -translate-x-1/2
+            "
+            style={{
+              background:
+                "linear-gradient(#01B2D4,#5D45BE)",
+            }}
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
             {/* IZQUIERDA */}
-            <div className="flex flex-col gap-14">
+
+            <div className="flex flex-col gap-12">
 
               {eventosIzquierda.map((evento, index) => (
 
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -60 }}
+                  initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.2,
+                  }}
                   viewport={{ once: true }}
                   className="
-                    bg-white/70
-                    backdrop-blur-md
-                    rounded-3xl
-                    p-6
-                    shadow-lg
-                    border border-[#E6DDCF]
-                    text-center
-                    hover:scale-[1.02]
-                    transition duration-300
+                    bg-white
+                    rounded-[2rem]
+                    p-8
+                    border
+                    shadow-xl
+                    hover:-translate-y-1
+                    transition
                   "
+                  style={{
+                    borderColor: "#DCE7FF",
+                  }}
                 >
 
-                  <img
-                    src={evento.imagen}
-                    alt={evento.titulo}
-                    className="h-20 w-20 md:h-24 md:w-24 mx-auto"
-                  />
+                  <div
+                    className="
+                      w-24
+                      h-24
+                      mx-auto
+                      rounded-full
+                      flex
+                      items-center
+                      justify-center
+                    "
+                    style={{
+                      background:
+                        "linear-gradient(135deg,#01B2D4,#5D45BE)",
+                    }}
+                  >
+                    <img
+                      src={evento.imagen}
+                      alt={evento.titulo}
+                      className="h-12 w-12"
+                    />
+                  </div>
 
-                  <h2 className="mt-5 text-2xl font-playfair text-black">
+                  <h2
+                    className="
+                      mt-6
+                      text-3xl
+                      text-center
+                      font-playfair
+                    "
+                    style={{
+                      color: "#1A1A1A",
+                    }}
+                  >
                     {evento.titulo}
                   </h2>
 
-                  <p className="mt-3 text-[#B89B5E] font-[DancingScript] text-xl">
+                  <p
+                    className="
+                      mt-3
+                      text-center
+                      text-2xl
+                      font-[DancingScript]
+                    "
+                    style={{
+                      color: "#EE5802",
+                    }}
+                  >
                     {evento.hora}
                   </p>
 
@@ -134,40 +279,81 @@ const Itinerario2 = () => {
             </div>
 
             {/* DERECHA */}
-            <div className="flex flex-col gap-14 md:mt-20">
+
+            <div className="flex flex-col gap-12 md:mt-20">
 
               {eventosDerecha.map((evento, index) => (
 
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: 60 }}
+                  initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.2,
+                  }}
                   viewport={{ once: true }}
                   className="
-                    bg-white/70
-                    backdrop-blur-md
-                    rounded-3xl
-                    p-6
-                    shadow-lg
-                    border border-[#E6DDCF]
-                    text-center
-                    hover:scale-[1.02]
-                    transition duration-300
+                    bg-white
+                    rounded-[2rem]
+                    p-8
+                    border
+                    shadow-xl
+                    hover:-translate-y-1
+                    transition
                   "
+                  style={{
+                    borderColor: "#DCE7FF",
+                  }}
                 >
 
-                  <img
-                    src={evento.imagen}
-                    alt={evento.titulo}
-                    className="h-20 w-20 md:h-24 md:w-24 mx-auto"
-                  />
+                  <div
+                    className="
+                      w-24
+                      h-24
+                      mx-auto
+                      rounded-full
+                      flex
+                      items-center
+                      justify-center
+                    "
+                    style={{
+                      background:
+                        "linear-gradient(135deg,#5D45BE,#01B2D4)",
+                    }}
+                  >
+                    <img
+                      src={evento.imagen}
+                      alt={evento.titulo}
+                      className="h-12 w-12"
+                    />
+                  </div>
 
-                  <h2 className="mt-5 text-2xl font-playfair text-black">
+                  <h2
+                    className="
+                      mt-6
+                      text-3xl
+                      text-center
+                      font-playfair
+                    "
+                    style={{
+                      color: "#1A1A1A",
+                    }}
+                  >
                     {evento.titulo}
                   </h2>
 
-                  <p className="mt-3 text-[#B89B5E] font-[DancingScript] text-xl">
+                  <p
+                    className="
+                      mt-3
+                      text-center
+                      text-2xl
+                      font-[DancingScript]
+                    "
+                    style={{
+                      color: "#EE5802",
+                    }}
+                  >
                     {evento.hora}
                   </p>
 
@@ -182,7 +368,7 @@ const Itinerario2 = () => {
         </div>
 
       </motion.div>
-    </div>
+    </section>
   );
 };
 
