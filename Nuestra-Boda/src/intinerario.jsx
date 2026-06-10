@@ -8,7 +8,7 @@ export default function Itinerario() {
   const [nombreInvitado, setNombreInvitado] = useState("");
   const [mensajeInvitado, setMensajeInvitado] = useState("");
   const [asistencia, setAsistencia] = useState("");
-  const [invitados, setInvitados] = useState(1);
+  const [invitados, setInvitados] = useState("");
   const [error, setError] = useState("");
 
   const enviarConfirmacion = async () => {
@@ -21,11 +21,11 @@ export default function Itinerario() {
     setError("");
 
     const data = {
-      nombre: nombreInvitado,
-      asistencia,
-      invitados,
-      mensaje: mensajeInvitado,
-    };
+  nombre: nombreInvitado,
+  asistencia,
+  invitados: Number(invitados) || 1,
+  mensaje: mensajeInvitado,
+};
 
   try {
 
@@ -111,20 +111,6 @@ export default function Itinerario() {
           "
         >
 
-          <p
-            className="
-              uppercase
-              tracking-[6px]
-              text-xs
-              md:text-sm
-              mb-8
-            "
-            style={{
-              color: "#C8A96B",
-            }}
-          >
-            Versículo
-          </p>
 
           <h2
             className="
@@ -342,7 +328,7 @@ export default function Itinerario() {
         min="1"
         value={invitados}
         onChange={(e) =>
-          setInvitados(Number(e.target.value))
+          setInvitados(e.target.value)
         }
         placeholder="Número de invitados"
         className="

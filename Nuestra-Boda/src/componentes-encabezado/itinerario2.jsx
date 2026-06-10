@@ -20,12 +20,10 @@ const Itinerario2 = () => {
     {
       titulo: "Boda Civil",
       imagen: "/arco-de-la-boda.png",
-      hora: "4:00 PM",
     },
     {
       titulo: "Baile",
       imagen: "/bola-de-disco.png",
-      hora: "9:00 PM",
     },
   ];
 
@@ -33,12 +31,10 @@ const Itinerario2 = () => {
     {
       titulo: "Comida",
       imagen: "/cena-romantica.png",
-      hora: "6:00 PM",
     },
     {
       titulo: "Pastel",
       imagen: "/pastel.png",
-      hora: "8:00 PM",
     },
   ];
 
