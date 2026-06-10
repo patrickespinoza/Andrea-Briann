@@ -78,7 +78,7 @@ export default function Itinerario() {
 
             {/* VERSÍCULO */}
 
-      <div className="relative w-full flex items-center justify-center bg-[#F7F4ED] py-16 px-4">
+      <div className="relative w-full flex items-center justify-center bg-white py-16 px-4">
 
         <img
           src="/marco-versiculo.png"
@@ -160,7 +160,7 @@ export default function Itinerario() {
 
       {/* CONFIRMACIÓN DE ASISTENCIA */}
 
-      <section className="relative bg-[#FAF9F6] py-24 px-6 overflow-hidden">
+      <section className="relative bg-white py-24 px-6 overflow-hidden">
 
   {/* Fondo decorativo */}
   <div
@@ -263,7 +263,7 @@ export default function Itinerario() {
           w-full
           p-4
 
-          bg-[#FAF9F6]
+          bg-white
 
           border
           border-[#DDD3C1]
@@ -334,7 +334,7 @@ export default function Itinerario() {
           w-full
           p-4
 
-          bg-[#FAF9F6]
+          bg-white
 
           border
           border-[#DDD3C1]
@@ -355,7 +355,7 @@ export default function Itinerario() {
           w-full
           p-4
 
-          bg-[#FAF9F6]
+          bg-white
 
           border
           border-[#DDD3C1]

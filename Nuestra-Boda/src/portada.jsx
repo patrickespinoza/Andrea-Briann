@@ -21,7 +21,7 @@ export default function Portada() {
   };
 
   return (
-    <section className="relative min-h-screen bg-[#FAF9F6] overflow-hidden flex items-center justify-center">
+    <section className="relative min-h-screen bg-white overflow-hidden flex items-center justify-center">
 
       {/* Destellos suaves */}
       <div
