@@ -101,6 +101,8 @@ export default function Portada() {
             px-[18%]
             sm:px-[20%]
             md:px-[22%]
+            mt-16
+            md:mt-24
           "
         >
 
