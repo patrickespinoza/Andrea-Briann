@@ -205,7 +205,7 @@ export default function Portada() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
             className="
-              mt-3
+              mt-1
               uppercase
               tracking-[4px]
               sm:tracking-[6px]
