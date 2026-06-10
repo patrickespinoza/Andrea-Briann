@@ -19,32 +19,23 @@ const Itinerario2 = () => {
 
   const eventosIzquierda = [
     {
-      titulo: "Fotografías",
-      imagen: "/camara-fotografica.png",
-      hora: "4:00 pm - 4:30 pm",
-    },
-    {
-      titulo: "Comida",
-      imagen: "/cena-romantica.png",
-      hora: "5:00 pm - 6:00 pm",
+      titulo: "Boda Civil",
+      imagen: "/arco-de-la-boda.png",
     },
     {
       titulo: "Baile",
       imagen: "/bola-de-disco.png",
-      hora: "6:30 pm - 11:30 pm",
     },
   ];
 
   const eventosDerecha = [
     {
-      titulo: "Llegada de Novios",
-      imagen: "/arco-de-la-boda.png",
-      hora: "4:30 pm - 5:00 pm",
+      titulo: "Comida",
+      imagen: "/cena-romantica.png",
     },
     {
       titulo: "Pastel",
       imagen: "/pastel.png",
-      hora: "6:00 pm - 6:30 pm",
     },
   ];
 

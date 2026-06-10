@@ -12,7 +12,7 @@ const Celebracion = ({
   titulo,
 }) => {
   return (
-    <section className="relative w-full bg-[#FAF9F6] overflow-hidden py-24 px-6">
+    <section className="relative w-full bg-white overflow-hidden py-24 px-6">
 
       {/* TALAVERA ESQUINAS */}
 

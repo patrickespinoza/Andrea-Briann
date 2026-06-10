@@ -97,7 +97,7 @@ export default function Portada() {
               color: "#C8A96B",
             }}
           >
-            Nos Casamos
+            
           </motion.p>
 
           {/* Nombre Novia */}
@@ -203,7 +203,7 @@ export default function Portada() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
             className="
-              mt-8
+              mt-3
               uppercase
               tracking-[4px]
               sm:tracking-[6px]
