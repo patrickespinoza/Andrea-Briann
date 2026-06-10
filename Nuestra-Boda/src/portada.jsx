@@ -214,8 +214,8 @@ export default function Portada() {
               md:text-xl
             "
             style={{
-              color: "#5D45BE",
-            }}
+  color: "#111111",
+}}
           >
             25 · Julio · 2026
           </motion.p>
