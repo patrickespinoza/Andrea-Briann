@@ -23,8 +23,8 @@ const Celebracion = ({
           absolute
           top-0
           left-0
-          w-40
-          md:w-60
+          w-24
+          md:w-32
           opacity-85
           pointer-events-none
           select-none
@@ -38,8 +38,8 @@ const Celebracion = ({
           absolute
           top-0
           right-0
-          w-40
-          md:w-60
+          w-24
+          md:w-32
           opacity-85
           rotate-90
           pointer-events-none
@@ -54,8 +54,8 @@ const Celebracion = ({
           absolute
           bottom-0
           right-0
-          w-40
-          md:w-60
+          w-24
+          md:w-32
           opacity-85
           rotate-180
           pointer-events-none
@@ -70,8 +70,8 @@ const Celebracion = ({
           absolute
           bottom-0
           left-0
-          w-40
-          md:w-60
+          w-24
+          md:w-32
           opacity-85
           -rotate-90
           pointer-events-none

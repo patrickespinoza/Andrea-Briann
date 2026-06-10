@@ -24,8 +24,8 @@ const Novios = () => {
           absolute
           top-0
           left-0
-          w-32
-          md:w-52
+          w-24
+          md:w-32
           opacity-85
           pointer-events-none
           select-none
@@ -40,8 +40,8 @@ const Novios = () => {
           absolute
           top-0
           right-0
-          w-32
-          md:w-52
+          w-24
+          md:w-32
           rotate-90
           opacity-85
           pointer-events-none
@@ -57,8 +57,8 @@ const Novios = () => {
           absolute
           bottom-0
           right-0
-          w-32
-          md:w-52
+          w-24
+          md:w-32
           rotate-180
           opacity-85
           pointer-events-none
@@ -74,8 +74,8 @@ const Novios = () => {
           absolute
           bottom-0
           left-0
-          w-32
-          md:w-52
+          w-24
+          md:w-32
           -rotate-90
           opacity-85
           pointer-events-none
