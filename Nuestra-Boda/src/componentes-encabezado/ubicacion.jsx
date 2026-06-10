@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Celebracion = ({
   dia,
@@ -11,97 +12,290 @@ const Celebracion = ({
   titulo,
 }) => {
   return (
-    <div className="w-full bg-[#5E6650] py-20 px-6 flex flex-col items-center justify-center">
+    <section className="relative w-full bg-[#FAF9F6] overflow-hidden py-24 px-6">
 
-      {/* FECHA */}
-      <div className="text-center mb-10">
+      {/* TALAVERA ESQUINAS */}
 
-        <p className="text-[#E7D7B1] tracking-[0.35em] uppercase text-sm sm:text-base font-semibold">
-          {dia}
-        </p>
-
-        <h1 className="text-7xl sm:text-8xl font-playfair text-[#F7F4ED] leading-none mt-3 drop-shadow-lg">
-          {fecha}
-        </h1>
-
-        <p className="text-[#E7D7B1] text-2xl sm:text-3xl tracking-[0.2em] mt-3">
-          {mesAnio}
-        </p>
-
-      </div>
-
-      {/* TARJETA */}
-      <div
+      <img
+        src="/talavera-esquina.png"
+        alt=""
         className="
-          relative bg-[#F7F4ED] max-w-xl w-full p-10 sm:p-14
-          shadow-[0_15px_50px_rgba(0,0,0,0.25)]
-          border border-[#d8cfbf]
-
-          rounded-tl-[4rem]
-          rounded-br-[4rem]
-          rounded-tr-[0.8rem]
-          rounded-bl-[0.8rem]
+          absolute
+          top-0
+          left-0
+          w-40
+          md:w-60
+          opacity-85
+          pointer-events-none
+          select-none
         "
+      />
+
+      <img
+        src="/talavera-esquina.png"
+        alt=""
+        className="
+          absolute
+          top-0
+          right-0
+          w-40
+          md:w-60
+          opacity-85
+          rotate-90
+          pointer-events-none
+          select-none
+        "
+      />
+
+      <img
+        src="/talavera-esquina.png"
+        alt=""
+        className="
+          absolute
+          bottom-0
+          right-0
+          w-40
+          md:w-60
+          opacity-85
+          rotate-180
+          pointer-events-none
+          select-none
+        "
+      />
+
+      <img
+        src="/talavera-esquina.png"
+        alt=""
+        className="
+          absolute
+          bottom-0
+          left-0
+          w-40
+          md:w-60
+          opacity-85
+          -rotate-90
+          pointer-events-none
+          select-none
+        "
+      />
+
+      {/* FONDO SUAVE */}
+
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(circle at 20% 20%, rgba(1,178,212,0.05), transparent 35%),
+            radial-gradient(circle at 80% 80%, rgba(93,69,190,0.05), transparent 35%),
+            radial-gradient(circle at 50% 50%, rgba(252,209,2,0.03), transparent 45%)
+          `,
+        }}
+      />
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="max-w-4xl mx-auto text-center relative z-10"
       >
+        {/* DIA */}
 
-        <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-[2px] bg-[#B89B5E]"></div>
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="
+            uppercase
+            tracking-[0.5em]
+            text-sm
+            md:text-base
+            font-medium
+          "
+          style={{
+            color: "#5D45BE",
+          }}
+        >
+          {dia}
+        </motion.p>
 
-        <div className="text-center space-y-3">
+        {/* FECHA */}
 
-          <h2 className="text-3xl sm:text-4xl font-playfair text-black tracking-wide">
-            {titulo}
-          </h2>
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="
+            mt-4
+            font-playfair
+            text-[6rem]
+            md:text-[9rem]
+            leading-none
+            font-light
+            text-[#1A1A1A]
+          "
+        >
+          {fecha}
+        </motion.h1>
 
-          <div className="w-20 h-[2px] mx-auto bg-[#B89B5E]"></div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+          className="
+            mt-4
+            text-xl
+            md:text-3xl
+            uppercase
+            tracking-[0.25em]
+            text-[#666]
+          "
+        >
+          {mesAnio}
+        </motion.p>
+
+        {/* SEPARADOR */}
+
+        <div className="flex justify-center items-center gap-4 my-12">
+
+          <div
+            className="h-[2px] w-24"
+            style={{
+              background:
+                "linear-gradient(90deg,#01B2D4,#5D45BE)",
+            }}
+          />
+
+          <div
+            className="w-4 h-4 rounded-full border-2"
+            style={{
+              borderColor: "#FCD102",
+            }}
+          />
+
+          <div
+            className="h-[2px] w-24"
+            style={{
+              background:
+                "linear-gradient(90deg,#5D45BE,#01B2D4)",
+            }}
+          />
 
         </div>
 
-        <div className="mt-10 flex flex-col items-center text-center space-y-6">
+        {/* TITULO */}
 
-          <div>
-            <p className="text-[#B89B5E] uppercase tracking-[0.25em] text-sm">
-              Hora
-            </p>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="
+            text-4xl
+            md:text-5xl
+            font-playfair
+            text-[#1A1A1A]
+          "
+        >
+          {titulo}
+        </motion.h2>
 
-            <p className="text-2xl font-cursiveDancing text-black mt-2">
-              {hora}
-            </p>
-          </div>
+        {/* HORA */}
 
-          <div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+          className="
+            mt-10
+            text-3xl
+            md:text-4xl
+            font-[DancingScript]
+          "
+          style={{
+            color: "#01B2D4",
+          }}
+        >
+          {hora}
+        </motion.p>
 
-            <p className="text-[#B89B5E] uppercase tracking-[0.25em] text-sm">
-              Lugar
-            </p>
+        {/* LUGAR */}
 
-            <p className="text-2xl font-cursiveDancing text-black mt-2">
-              {lugar}
-            </p>
+        <motion.h3
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          viewport={{ once: true }}
+          className="
+            mt-10
+            text-2xl
+            md:text-3xl
+            font-playfair
+            text-[#1A1A1A]
+          "
+        >
+          {lugar}
+        </motion.h3>
 
-            <p className="text-black/70 mt-3 leading-relaxed text-sm sm:text-base max-w-md">
-              {direccion}
-            </p>
+        {/* DIRECCION */}
 
-          </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          viewport={{ once: true }}
+          className="
+            mt-4
+            max-w-xl
+            mx-auto
+            text-[#666]
+            leading-relaxed
+            text-base
+            md:text-lg
+          "
+        >
+          {direccion}
+        </motion.p>
 
-          <a
-            href={ubicacion}
-            target="_blank"
-            rel="noreferrer"
-            className="
-              mt-4 bg-[#B89B5E] hover:scale-105 transition duration-300
-              text-white px-8 py-3 rounded-full shadow-lg tracking-wide
-            "
-          >
-            Ver Ubicación
-          </a>
+        {/* BOTON */}
 
-        </div>
+        <motion.a
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          viewport={{ once: true }}
+          href={ubicacion}
+          target="_blank"
+          rel="noreferrer"
+          className="
+            inline-block
+            mt-12
+            px-12
+            py-4
+            rounded-full
+            text-white
+            font-medium
+            tracking-wide
+            shadow-xl
+            transition-all
+            duration-500
+            hover:scale-105
+            hover:-translate-y-1
+          "
+          style={{
+            background:
+              "linear-gradient(135deg,#01B2D4,#5D45BE)",
+          }}
+        >
+          Ver Ubicación
+        </motion.a>
 
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 w-28 h-[2px] bg-[#B89B5E]"></div>
-
-      </div>
-    </div>
+      </motion.div>
+    </section>
   );
 };
 

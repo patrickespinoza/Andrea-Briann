@@ -1,47 +1,247 @@
-import React, { useRef, useState } from 'react';
-
+import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Portada() {
   const audioRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(false); 
+  const [isMuted, setIsMuted] = useState(false);
 
   const handlePlayMusic = () => {
     if (audioRef.current) {
       audioRef.current.play().catch((error) => {
-        console.error("Error al intentar reproducir el audio:", error);
+        console.error(error);
       });
     }
   };
 
   const toggleMute = () => {
     if (audioRef.current) {
-      audioRef.current.muted = !isMuted; 
-      setIsMuted(!isMuted); 
+      audioRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
     }
   };
 
   return (
-    <div>
-      <section className="relative w-full h-[calc(110vh-160px)] md:h-screen flex flex-col items-center justify-center text-white">
+    <section className="relative min-h-screen bg-[#FAF9F6] overflow-hidden flex items-center justify-center px-2 sm:px-4">
+
+      {/* Destellos suaves */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(circle at 20% 20%, rgba(1,178,212,.04), transparent 30%),
+            radial-gradient(circle at 80% 80%, rgba(93,69,190,.04), transparent 30%)
+          `,
+        }}
+      />
+
+      {/* Marco Talavera */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2 }}
+        className="
+          relative
+          w-full
+          max-w-[900px]
+          h-[90vh]
+          sm:h-[95vh]
+          md:h-screen
+          flex
+          items-center
+          justify-center
+        "
+      >
         <img
-          src="/principla-01.jpeg"
-          alt="Fondo"
-          className="absolute w-full h-full object-cover"
+          src="/marco-portada.png"
+          alt="Marco Talavera"
+          className="
+            absolute
+            inset-0
+            w-full
+            h-full
+            object-contain
+            pointer-events-none
+            select-none
+          "
         />
 
-        <div className="relative bg-opacity-50 rounded-lg w-full h-full justify-center items-center flex flex-col p-4 gap-4">
-          <h1 className="roboto-black p-12 text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-serif">
-            Nuestra Boda
-          </h1>
-          <p className="font-serif text-2xl sm:text-2xl md:text-3xl lg:text-4xl" >11 |
-             06 | 2026
-          </p>
-          <p className="font-serif text-lg sm:text-2xl md:text-3xl lg:text-4xl">Karla & Mark</p>
+        {/* Contenido centrado */}
+        <div
+          className="
+            absolute
+            inset-0
+            z-10
+            flex
+            flex-col
+            items-center
+            justify-center
+            text-center
+            px-8
+            sm:px-14
+            md:px-20
+          "
+        >
+          {/* Título */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="
+              uppercase
+              tracking-[4px]
+              sm:tracking-[6px]
+              text-[10px]
+              sm:text-xs
+              md:text-sm
+              mb-4
+            "
+            style={{ color: "#C8A96B" }}
+          >
+            Nos Casamos
+          </motion.p>
+
+          {/* Nombre Novia */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="
+              font-playfair
+              text-3xl
+              sm:text-5xl
+              md:text-6xl
+              lg:text-7xl
+              font-light
+              text-[#1A1A1A]
+              leading-tight
+            "
+          >
+            Andrea
+          </motion.h1>
+
+          {/* & */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="my-2 sm:my-4"
+          >
+            <span
+              className="
+                text-4xl
+                sm:text-5xl
+                md:text-6xl
+                font-[DancingScript]
+              "
+              style={{
+                background:
+                  "linear-gradient(135deg,#FCD102,#EE5802)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              &
+            </span>
+          </motion.div>
+
+          {/* Nombre Novio */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="
+              font-playfair
+              text-3xl
+              sm:text-5xl
+              md:text-6xl
+              lg:text-7xl
+              font-light
+              text-[#1A1A1A]
+              leading-tight
+            "
+          >
+            Briann
+          </motion.h1>
+
+          {/* Separador */}
+          <div className="flex justify-center items-center gap-3 sm:gap-4 my-6 sm:my-8">
+            <div className="w-10 sm:w-16 h-[1px] bg-[#01B2D4]" />
+
+            <div className="w-3 h-3 rounded-full bg-[#FCD102]" />
+
+            <div className="w-10 sm:w-16 h-[1px] bg-[#5D45BE]" />
+          </div>
+
+          {/* Frase */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="
+              italic
+              text-[#666]
+              text-sm
+              sm:text-base
+              md:text-lg
+              max-w-[260px]
+              sm:max-w-md
+              leading-relaxed
+            "
+          >
+            Celebremos juntos el inicio de nuestra historia para siempre
+          </motion.p>
+
+          {/* Fecha */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="
+              mt-6
+              sm:mt-8
+              uppercase
+              tracking-[3px]
+              sm:tracking-[5px]
+              text-xs
+              sm:text-sm
+              md:text-lg
+            "
+            style={{ color: "#5D45BE" }}
+          >
+            25 · Julio · 2026
+          </motion.p>
         </div>
-      </section>
-    </div>
-    
+      </motion.div>
+
+      {/* Audio */}
+      <audio
+        ref={audioRef}
+        loop
+        onCanPlay={handlePlayMusic}
+      >
+        <source src="/musica.mp3" type="audio/mpeg" />
+      </audio>
+
+      {/* Botón opcional de sonido */}
+      {/*
+      <button
+        onClick={toggleMute}
+        className="
+          fixed
+          bottom-6
+          right-6
+          z-50
+          bg-white/80
+          backdrop-blur-md
+          px-4
+          py-2
+          rounded-full
+          shadow-md
+        "
+      >
+        {isMuted ? "🔇" : "🔊"}
+      </button>
+      */}
+    </section>
   );
 }
-
-

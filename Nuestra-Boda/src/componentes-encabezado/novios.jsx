@@ -2,216 +2,221 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Novios = () => {
-
   return (
-    <div className="w-full bg-[#F7F4ED] py-20 px-6 flex items-center justify-center overflow-hidden">
+    <section className="relative w-full bg-[#FAF9F6] overflow-hidden py-28 px-6">
 
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2 }}
-        viewport={{ once: true }}
+      {/* Fondo decorativo muy sutil */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(circle at 20% 30%, rgba(1,178,212,0.03), transparent 35%),
+            radial-gradient(circle at 80% 70%, rgba(93,69,190,0.03), transparent 35%)
+          `,
+        }}
+      />
+
+      {/* Flor superior izquierda */}
+      <div
+        className="absolute top-8 left-6 md:left-20 text-5xl md:text-7xl select-none pointer-events-none"
+        style={{
+          color: "rgba(1,178,212,0.08)",
+        }}
+      >
+        ✿
+      </div>
+
+      {/* Flor inferior derecha */}
+      <div
+        className="absolute bottom-8 right-6 md:right-20 text-5xl md:text-7xl select-none pointer-events-none"
+        style={{
+          color: "rgba(93,69,190,0.08)",
+        }}
+      >
+        ✿
+      </div>
+
+      {/* Flor central gigante */}
+      <div
         className="
-          max-w-4xl w-full
-          bg-white
-          rounded-tl-[4rem]
-          rounded-br-[4rem]
-          rounded-tr-[1rem]
-          rounded-bl-[1rem]
-          shadow-[0_15px_50px_rgba(0,0,0,0.12)]
-          px-8 py-16 sm:px-16
-          text-center
-          relative
-          overflow-hidden
+          absolute
+          inset-0
+          flex
+          items-center
+          justify-center
+          pointer-events-none
+          select-none
         "
       >
+        <span
+          className="text-[14rem] md:text-[22rem] leading-none"
+          style={{
+            color: "rgba(93,69,190,0.025)",
+          }}
+        >
+          ✿
+        </span>
+      </div>
 
-        {/* Glow elegante */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#E7D7B1]/20 via-transparent to-[#B89B5E]/10 pointer-events-none"></div>
-
-        {/* Texto superior */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+        viewport={{ once: true }}
+        className="max-w-5xl mx-auto text-center relative z-10"
+      >
+        {/* Título */}
         <motion.p
-          initial={{ opacity: 0, letterSpacing: "0.4em" }}
-          whileInView={{ opacity: 1, letterSpacing: "0.2em" }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="
             uppercase
-            text-[#B89B5E]
-            tracking-[0.2em]
-            text-xs sm:text-sm
-            font-semibold
+            tracking-[0.45em]
+            text-xs
+            md:text-sm
+            mb-6
+            font-medium
           "
+          style={{
+            background:
+              "linear-gradient(90deg,#01B2D4,#5D45BE)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
         >
           Nuestra Boda
         </motion.p>
 
-        {/* Nombres */}
+        {/* Ornamento mexicano elegante */}
+        <div className="flex justify-center items-center gap-4 mb-12">
+          <div className="w-2 h-2 rounded-full bg-[#01B2D4]" />
+
+          <span
+            className="text-xl"
+            style={{ color: "#FCD102" }}
+          >
+            ✿
+          </span>
+
+          <div className="w-2 h-2 rounded-full bg-[#DF3CB5]" />
+
+          <span
+            className="text-xl"
+            style={{ color: "#EE5802" }}
+          >
+            ✿
+          </span>
+
+          <div className="w-2 h-2 rounded-full bg-[#5D45BE]" />
+        </div>
+
+        {/* Nombre novia */}
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="
+            font-playfair
+            text-[#1A1A1A]
+            text-5xl
+            sm:text-6xl
+            md:text-8xl
+            leading-tight
+            font-light
+          "
+        >
+          Andrea Cid Durán López
+        </motion.h1>
+
+        {/* Separador */}
+        <motion.div
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="my-8 flex justify-center items-center gap-6"
+        >
+          <div className="w-16 h-px bg-[#D8CDB7]" />
+
+          <span
+            className="
+              text-5xl
+              md:text-6xl
+              font-[DancingScript]
+            "
+            style={{
+              background:
+                "linear-gradient(135deg,#FCD102,#EE5802)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            &
+          </span>
+
+          <div className="w-16 h-px bg-[#D8CDB7]" />
+        </motion.div>
+
+        {/* Nombre novio */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
           viewport={{ once: true }}
           className="
-            mt-10
-            text-4xl sm:text-5xl md:text-6xl
             font-playfair
-            text-black
+            text-[#1A1A1A]
+            text-5xl
+            sm:text-6xl
+            md:text-8xl
             leading-tight
+            font-light
           "
         >
-          Allison Martinez Sanchez
+          Briann Eulises Romero Lima
         </motion.h1>
 
-        <motion.p
+        {/* Cenefa floral */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="
-            my-6
-            text-4xl sm:text-5xl
-            text-[#B89B5E]
-            font-[DancingScript]
-          "
+          className="flex justify-center items-center gap-4 mt-14"
         >
-          &
-        </motion.p>
+          <span className="text-[#01B2D4] text-xl">✿</span>
+          <span className="text-[#FCD102] text-xl">✿</span>
+          <span className="text-[#EE5802] text-xl">✿</span>
+          <span className="text-[#DF3CB5] text-xl">✿</span>
+          <span className="text-[#5D45BE] text-xl">✿</span>
+        </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        {/* Texto */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
           viewport={{ once: true }}
           className="
-            text-4xl sm:text-5xl md:text-6xl
-            font-playfair
-            text-black
-            leading-tight
-          "
-        >
-          David Hernandez Salazar
-        </motion.h1>
-
-        {/* Línea */}
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: "7rem" }}
-          transition={{ duration: 1, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="h-[2px] bg-[#B89B5E] mx-auto mt-10"
-        />
-
-        {/* Texto bendición */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          viewport={{ once: true }}
-          className="
             mt-10
-            text-xl sm:text-2xl
-            text-black/70
-            font-[DancingScript]
+            max-w-2xl
+            mx-auto
+            text-[#555]
+            text-base
+            md:text-lg
             leading-relaxed
+            font-light
           "
         >
-          Con la bendición de nuestros padres
+          Con la bendición de Dios y nuestros padres,
+          queremos compartir contigo uno de los momentos más
+          importantes de nuestras vidas.
         </motion.p>
-
-        {/* Padres */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-14">
-
-          {/* Padres novio */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-            viewport={{ once: true }}
-            className="
-              bg-[#F7F4ED]
-              rounded-3xl
-              p-8
-              shadow-md
-            "
-          >
-
-            <h2 className="
-              text-[#B89B5E]
-              uppercase
-              tracking-[0.2em]
-              text-sm
-              mb-6
-            ">
-              Padres del Novio
-            </h2>
-
-            <p className="
-              text-2xl
-              font-playfair
-              text-black
-            ">
-              Gael Hernandez
-            </p>
-
-            <p className="
-              mt-3
-              text-2xl
-              font-playfair
-              text-black
-            ">
-              Marta Salazar
-            </p>
-
-          </motion.div>
-
-          {/* Padres novia */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            viewport={{ once: true }}
-            className="
-              bg-[#F7F4ED]
-              rounded-3xl
-              p-8
-              shadow-md
-            "
-          >
-
-            <h2 className="
-              text-[#B89B5E]
-              uppercase
-              tracking-[0.2em]
-              text-sm
-              mb-6
-            ">
-              Padres de la Novia
-            </h2>
-
-            <p className="
-              text-2xl
-              font-playfair
-              text-black
-            ">
-              Jose Martinez
-            </p>
-
-            <p className="
-              mt-3
-              text-2xl
-              font-playfair
-              text-black
-            ">
-              Karla Sanchez
-            </p>
-
-          </motion.div>
-
-        </div>
-
       </motion.div>
-    </div>
+    </section>
   );
 };
 

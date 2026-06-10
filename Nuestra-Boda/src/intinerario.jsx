@@ -16,21 +16,13 @@ export default function Itinerario() {
 
         <Celebracion
           titulo="Ceremonia"
-          dia="Jueves"
-          fecha="11"
-          mesAnio="Junio 2026"
-          hora="4:30 PM"
-          lugar="Salón Event Center"
-          direccion="Puebla, Puebla"
-          ubicacion="https://maps.app.goo.gl/TsSDUBKAractwi8F8"
-        />
-
-        <Celebracion
-          titulo="Recepción"
-          hora="8:00 PM"
-          lugar="Jardín Magnolia"
-          direccion="Atlixco, Puebla"
-          ubicacion="https://maps.app.goo.gl/TsSDUBKAractwi8F8"
+          dia="Sabado"
+          fecha="25"
+          mesAnio="Julio 2026"
+          hora="12:00 PM"
+          lugar="Salón Quinta Jimena"
+          direccion="Emilio Carranza 12"
+          ubicacion="https://maps.app.goo.gl/178mHUcbGDc3viFF9"
         />
 
       </div>
