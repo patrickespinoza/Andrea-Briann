@@ -67,7 +67,7 @@ export default function Itinerario() {
           dia="Sábado"
           fecha="25"
           mesAnio="Julio 2026"
-          hora="12:00 PM"
+          hora="1:00 PM"
           lugar="Salón Quinta Jimena"
           direccion="Emilio Carranza 12"
           ubicacion="https://maps.app.goo.gl/178mHUcbGDc3viFF9"
