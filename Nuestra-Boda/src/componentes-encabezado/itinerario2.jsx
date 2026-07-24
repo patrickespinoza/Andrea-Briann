@@ -23,22 +23,24 @@ const Itinerario2 = () => {
       hora: "1:00 PM",
     },
     {
-      titulo: "Baile",
-      imagen: "/bola-de-disco.png",
-      hora: "7:00 PM ",
-    },
-  ];
-
-  const eventosDerecha = [
-    {
       titulo: "Comida",
       imagen: "/cena-romantica.png",
       hora: "2:00 PM",
     },
+ 
+  ];
+
+  const eventosDerecha = [
+    
     {
       titulo: "Brindis, Vals, Partida de Pastel",
       imagen: "/pastel.png",
       hora: "6:00 PM",
+    },   
+    {
+      titulo: "Baile",
+      imagen: "/bola-de-disco.png",
+      hora: "7:00 PM ",
     },
   ];
 
